@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GUI",
-    "\\GUI\\bin",
-    "\\GUI\\obj",
-    "\\GUI\\Properties"
+    "\\GUI"
   ],
-  "SelectedNode": "\\GUI\\Form1.cs",
+  "SelectedNode": "\\GUI\\Form1.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

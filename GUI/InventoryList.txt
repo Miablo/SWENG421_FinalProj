@@ -1,0 +1,8 @@
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
+Item, shelf, 2532, price, 400
