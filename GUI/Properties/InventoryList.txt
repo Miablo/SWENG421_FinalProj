@@ -1,0 +1,3 @@
+Product@1 *3
+!!!!!Product2 *10
+Pr#odu!ct3 *1
