@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Source;
 
 namespace GUI
 {
     public partial class Form1 : Form
     {
+        //string[] prolist = new Source();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +22,7 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
