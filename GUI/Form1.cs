@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -26,7 +20,8 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-             System.IO.StreamReader file = new System.IO.StreamReader("C:/Users/miablo/Source/Repos/Miablo/SWENG421_FinalProj/GUI/InventoryList.txt");
+
+            System.IO.StreamReader file = new System.IO.StreamReader("C:/Users/miablo/Source/Repos/Miablo/SWENG421_FinalProj/GUI/InventoryList.txt");
            
 
             string[] columnnames = file.ReadLine().Split(' ');
@@ -52,11 +47,10 @@ namespace GUI
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-
-
-
+            String obj = (String)dataGridView1.CurrentRow.DataBoundItem;
+            Console.WriteLine(obj);
         }
     }
 }

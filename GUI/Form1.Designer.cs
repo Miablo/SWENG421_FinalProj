@@ -70,29 +70,29 @@ namespace GUI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(356, 21);
+            this.button3.Location = new System.Drawing.Point(329, 21);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 50);
+            this.button3.Size = new System.Drawing.Size(171, 50);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Add";
+            this.button3.Text = "Update List";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(528, 21);
+            this.button2.Location = new System.Drawing.Point(506, 21);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 50);
+            this.button2.Size = new System.Drawing.Size(161, 50);
             this.button2.TabIndex = 1;
             this.button2.Text = "Remove";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(179, 21);
+            this.button1.Location = new System.Drawing.Point(181, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 50);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Refresh";
+            this.button1.Text = "Get List";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -101,7 +101,7 @@ namespace GUI
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 434);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1523, 612);
+            this.groupBox2.Size = new System.Drawing.Size(1548, 654);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inventory List";
@@ -109,13 +109,13 @@ namespace GUI
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1498, 556);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             // 
             // groupBox3
             // 
@@ -190,7 +190,7 @@ namespace GUI
             this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Location = new System.Drawing.Point(735, 156);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(781, 254);
+            this.groupBox4.Size = new System.Drawing.Size(800, 254);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add / Update Products";
@@ -247,7 +247,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1547, 1058);
+            this.ClientSize = new System.Drawing.Size(1674, 1229);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
