@@ -18,7 +18,14 @@ namespace GUI
 
         public void stock()
         {
-            vp1.Add();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                vp1.Add();
+            }
 
         }
 

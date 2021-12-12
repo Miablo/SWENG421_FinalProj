@@ -18,7 +18,14 @@ namespace GUI
 
         public void stock()
         {
-            vp2.Add();
+            if (count == 0)
+            {
+
+            }
+            else
+            {
+                vp2.Add();
+            }
 
         }
 
