@@ -8,6 +8,6 @@ namespace GUI
 {
     public interface SourceIF
     {
-        void GetData();
+        string[] GetData();
     }
 }

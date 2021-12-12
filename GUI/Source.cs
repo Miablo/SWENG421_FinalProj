@@ -21,7 +21,7 @@ public class Source: SourceIF
 		this.lines = line;
     }
 
-    public void GetData()
+    public string[] GetData()
     {
 		string line = (System.IO.File.ReadAllText("E:/SWENG421/SWENG421_FinalProj/GUI/DatabaseFile.txt"));
         string[] temp = new string[line.Length];
@@ -34,6 +34,29 @@ public class Source: SourceIF
                line = line.Replace(removelist[i], "");
             }
         }
-        Console.WriteLine(line);
+        //Console.WriteLine(line);
+        string tempstring = "";
+        for(int i = 0; i < line.Length; i++)
+        {
+            if(line[i] == '\n')
+            {
+                temp[t] = tempstring;
+                tempstring = "";
+                t++;
+            }
+            else
+            {
+                tempstring += line[i];
+            }
+        }
+        return temp;
+
+        //foreach (string l in temp)
+        //{
+        //    if (l != null)
+        //    {
+        //        Console.WriteLine(l);
+        //    }
+        //}
     }
 }

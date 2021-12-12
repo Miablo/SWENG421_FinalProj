@@ -7,6 +7,7 @@ namespace GUI
     public partial class Form1 : Form
     {
         Source source = new Source();
+        string[] database;
         
         public Form1()
         {
@@ -15,34 +16,38 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            source.GetData();
+            database = source.GetData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            System.IO.StreamReader file = new System.IO.StreamReader("C:/Users/miablo/Source/Repos/Miablo/SWENG421_FinalProj/GUI/InventoryList.txt");
-           
+            //System.IO.StreamReader file = new System.IO.StreamReader("C:/Users/miablo/Source/Repos/Miablo/SWENG421_FinalProj/GUI/InventoryList.txt");
 
-            string[] columnnames = file.ReadLine().Split(' ');
+            string[] columnnames = database;
             DataTable dt = new DataTable();
-            foreach (string c in columnnames)
-            {
-                dt.Columns.Add(c);
-            }
-            string newline;
-            while ((newline = file.ReadLine()) != null)
+
+                dt.Columns.Add("Name");
+                dt.Columns.Add("Amount");
+            
+            foreach (string r in columnnames)
             {
                 DataRow dr = dt.NewRow();
-                string[] values = newline.Split(',');
-                for (int i = 0; i < values.Length; i++)
+                if (r != null)
                 {
-                    dr[i] = values[i];
+                    string[] values = r.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        dr[i] = values[i];
+                    }
+                    dt.Rows.Add(dr);
                 }
-                dt.Rows.Add(dr);
-            }
 
-            file.Close();
+            }
+            
+            
+
+            //file.Close();
             dataGridView1.DataSource = dt;
 
         }
