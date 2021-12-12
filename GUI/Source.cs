@@ -1,21 +1,39 @@
-﻿using System;
+﻿using GUI;
+using System;
 
 
-public class Source
+public class Source: SourceIF
 {
-	public Source()
-	{
-		return getData();
-	}
+	SourceIF fif;
+	string[] lines;
+	string[] removelist = new string[] { "!", "@", "#", "$", "%", "^", "&", "(", ")", "*" };
 
-	private string[] getData()
+	public Source()
+    {
+
+    }
+	public Source(SourceIF fif)
 	{
-		string[] lines =
-			System.IO.File.ReadAllLines("InventoryList.txt");
-		foreach (string line in lines)
-		{
-			Console.WriteLine(line);
-		}
-		return lines;
+		this.fif = fif;
 	}
+	public Source(string[] line)
+    {
+		this.lines = line;
+    }
+
+    public void GetData()
+    {
+		string line = (System.IO.File.ReadAllText("E:/SWENG421/SWENG421_FinalProj/GUI/DatabaseFile.txt"));
+        string[] temp = new string[line.Length];
+        int t = 0;
+
+        for(int i = 0; i < removelist.Length; i++)
+        {
+            if (line.Contains(removelist[i]))
+            {
+               line = line.Replace(removelist[i], "");
+            }
+        }
+        Console.WriteLine(line);
+    }
 }

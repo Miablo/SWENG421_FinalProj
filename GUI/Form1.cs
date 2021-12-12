@@ -6,8 +6,8 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        //string[] prolist = new Source();
-
+        Source source = new Source();
+        
         public Form1()
         {
             InitializeComponent();
@@ -15,7 +15,7 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            source.GetData();
         }
 
         private void button1_Click(object sender, EventArgs e)
