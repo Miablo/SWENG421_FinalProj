@@ -5,7 +5,6 @@ using System;
 public class Source: SourceIF
 {
 	SourceIF fif;
-	string[] lines;
 	string[] removelist = new string[] { "!", "@", "#", "$", "%", "^", "&", "(", ")", "*" };
 
 	public Source()
@@ -16,14 +15,10 @@ public class Source: SourceIF
 	{
 		this.fif = fif;
 	}
-	public Source(string[] line)
-    {
-		this.lines = line;
-    }
-
+	
     public string[] GetData()
     {
-		string line = (System.IO.File.ReadAllText("E:/SWENG421/SWENG421_FinalProj/GUI/DatabaseFile.txt"));
+		string line = (System.IO.File.ReadAllText("/Desktop/SWENG421_FinalProj/GUI/DatabaseFile.txt"));
         string[] temp = new string[line.Length];
         int t = 0;
 
@@ -50,13 +45,5 @@ public class Source: SourceIF
             }
         }
         return temp;
-
-        //foreach (string l in temp)
-        //{
-        //    if (l != null)
-        //    {
-        //        Console.WriteLine(l);
-        //    }
-        //}
     }
 }

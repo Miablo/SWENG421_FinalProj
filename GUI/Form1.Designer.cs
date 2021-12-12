@@ -30,15 +30,14 @@ namespace GUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.remove = new System.Windows.Forms.Button();
+            this.updateList = new System.Windows.Forms.Button();
+            this.add = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,8 +57,9 @@ namespace GUI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.remove);
+            this.groupBox1.Controls.Add(this.updateList);
+            this.groupBox1.Controls.Add(this.add);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
@@ -68,23 +68,35 @@ namespace GUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table Controls";
             // 
-            // button3
+            // remove
             // 
-            this.button3.Location = new System.Drawing.Point(329, 21);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Update List";
-            this.button3.UseVisualStyleBackColor = true;
+            this.remove.Location = new System.Drawing.Point(673, 21);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(161, 50);
+            this.remove.TabIndex = 3;
+            this.remove.Text = "Remove";
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
-            // button2
+            // updateList
             // 
-            this.button2.Location = new System.Drawing.Point(506, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(161, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = true;
+            this.updateList.Location = new System.Drawing.Point(329, 21);
+            this.updateList.Name = "updateList";
+            this.updateList.Size = new System.Drawing.Size(171, 50);
+            this.updateList.TabIndex = 2;
+            this.updateList.Text = "Update List";
+            this.updateList.UseVisualStyleBackColor = true;
+            this.updateList.Click += new System.EventHandler(this.updateList_Click);
+            // 
+            // add
+            // 
+            this.add.Location = new System.Drawing.Point(506, 21);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(161, 50);
+            this.add.TabIndex = 1;
+            this.add.Text = "Add";
+            this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // button1
             // 
@@ -94,7 +106,7 @@ namespace GUI
             this.button1.TabIndex = 0;
             this.button1.Text = "Get List";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.getList_Click);
             // 
             // groupBox2
             // 
@@ -119,9 +131,7 @@ namespace GUI
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label1);
@@ -132,30 +142,14 @@ namespace GUI
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search Inventory";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Product ID";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(27, 127);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
+            this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Product ID";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(155, 207);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(325, 31);
-            this.textBox3.TabIndex = 3;
+            this.label2.Text = "Location";
             // 
             // textBox2
             // 
@@ -163,6 +157,7 @@ namespace GUI
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(325, 31);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.location_Search_TextChanged);
             // 
             // textBox1
             // 
@@ -170,6 +165,7 @@ namespace GUI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(325, 31);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.prodID_Search_TextChanged);
             // 
             // label1
             // 
@@ -198,20 +194,20 @@ namespace GUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 187);
+            this.label6.Location = new System.Drawing.Point(70, 187);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 25);
+            this.label6.Size = new System.Drawing.Size(94, 25);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Product ID";
+            this.label6.Text = "Location";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(72, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 25);
+            this.label5.Size = new System.Drawing.Size(92, 25);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Product ID";
+            this.label5.Text = "Quantity";
             // 
             // label4
             // 
@@ -228,6 +224,7 @@ namespace GUI
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(325, 31);
             this.textBox6.TabIndex = 6;
+            this.textBox6.TextChanged += new System.EventHandler(this.location_TextChanged);
             // 
             // textBox5
             // 
@@ -235,6 +232,7 @@ namespace GUI
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(325, 31);
             this.textBox5.TabIndex = 5;
+            this.textBox5.TextChanged += new System.EventHandler(this.quantity_TextChanged);
             // 
             // textBox4
             // 
@@ -242,6 +240,7 @@ namespace GUI
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(325, 31);
             this.textBox4.TabIndex = 4;
+            this.textBox4.TextChanged += new System.EventHandler(this.prodID_Add_TextChanged);
             // 
             // Form1
             // 
@@ -269,16 +268,14 @@ namespace GUI
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button updateList;
+        private System.Windows.Forms.Button add;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
@@ -287,6 +284,7 @@ namespace GUI
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button remove;
     }
 }
 

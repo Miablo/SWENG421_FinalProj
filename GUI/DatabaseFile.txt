@@ -1,3 +1,10 @@
-﻿P&^$roduct1,*5
-P@@roduct2,*10
-P!!!!roduct3,*2
+﻿P&^$roduct1,*5, van1,200
+P@@roduct2,*10, van2,10
+P!!!!roduct3,*2, warehouse1, 23
+P!!!!roduct3,*2, warehouse1, 23
+P!!!!roduct3,*2, warehouse1, 23
+P@@roduct2,*10, van2,10
+P@@roduct2,*10, van2,10
+P&^$roduct1,*5, van1,200
+P&^$roduct1,*5, van1,200
+P&^$roduct1,*5, van1,200
