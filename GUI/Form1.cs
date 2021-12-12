@@ -22,8 +22,7 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //System.IO.StreamReader file = new System.IO.StreamReader("C:/Users/miablo/Source/Repos/Miablo/SWENG421_FinalProj/GUI/InventoryList.txt");
-
+        
             string[] columnnames = database;
             DataTable dt = new DataTable();
 
@@ -46,16 +45,13 @@ namespace GUI
             }
             
             
-
-            //file.Close();
             dataGridView1.DataSource = dt;
 
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            String obj = (String)dataGridView1.CurrentRow.DataBoundItem;
-            Console.WriteLine(obj);
+           
         }
     }
 }

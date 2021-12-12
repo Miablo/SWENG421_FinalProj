@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace GUI
 {
-    class Product1
+    class Product1 : InventoryIF
     {
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Use()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

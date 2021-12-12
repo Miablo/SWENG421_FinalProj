@@ -8,7 +8,7 @@ namespace GUI
 {
     class Factory : FactoryIF
     {
-        public InventoryIF createProduct()
+        public InventoryIF createProduct(string pro)
         {
             throw new NotImplementedException();
         }

@@ -8,6 +8,6 @@ namespace GUI
 {
     interface FactoryIF
     {
-        InventoryIF createProduct();
+        InventoryIF createProduct(String pro);
     }
 }
