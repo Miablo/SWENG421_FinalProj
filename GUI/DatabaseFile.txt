@@ -8,3 +8,9 @@ P@@roduct2,*10, van2,10
 P&^$roduct1,*5, van1,200
 P&^$roduct1,*5, van1,200
 P&^$roduct1,*5, van1,200
+P&^$roduct1,*5
+P@@roduct2,*10
+P!!!!roduct3,*2
+VanProduct1,*1
+VanProduct2,*3
+VanProduct3,*0
