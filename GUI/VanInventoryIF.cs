@@ -8,5 +8,8 @@ namespace GUI
 {
     interface VanInventoryIF
     {
+        void SetCount(int c);
+        void stock();
+        void take();
     }
 }

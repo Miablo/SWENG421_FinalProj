@@ -8,5 +8,15 @@ namespace GUI
 {
     class VanInventory
     {
+        public VanInventoryIF vif;
+
+        public void stock()
+        {
+
+        }
+        public void take()
+        {
+
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace GUI
     {
         Source source = new Source();
         string[] database;
+        List list = new List();
         
         public Form1()
         {
@@ -43,8 +44,9 @@ namespace GUI
                 }
 
             }
-            
-            
+
+            list.SetCount(columnnames);
+
             dataGridView1.DataSource = dt;
 
         }

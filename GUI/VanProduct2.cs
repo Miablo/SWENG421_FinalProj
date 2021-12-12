@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace GUI
 {
-    class Class1
+    class VanProduct2 : Product2, VanInventoryIF
     {
+        public Product2 vp2;
+        public int count;
+
+        public void SetCount(int c)
+        {
+            count = c;
+        }
+
+        public void stock()
+        {
+            vp2.Add();
+
+        }
+
+        public void take()
+        {
+            vp2.Use();
+        }
     }
 }
