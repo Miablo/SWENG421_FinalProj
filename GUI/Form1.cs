@@ -116,7 +116,7 @@ namespace GUI
             {
                 stateEnabled();
 
-                string productID = t.Text.ToString();
+                string quantity = t.Text.ToString();
             }
             else
             {
@@ -132,7 +132,7 @@ namespace GUI
             {
                 stateEnabled();
 
-                string productID = t.Text.ToString();
+                string location = t.Text.ToString();
             }
             else
             {
@@ -163,7 +163,7 @@ namespace GUI
             {
                 stateEnabled();
 
-                string productID = t.Text.ToString();
+                string location = t.Text.ToString();
             }
             else
             {
