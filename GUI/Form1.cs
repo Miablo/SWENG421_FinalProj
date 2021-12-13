@@ -15,30 +15,48 @@ namespace GUI
             InitializeComponent();
             stateDisabled();
 
+            this.Size = new Size(600, 600);
+
+            add.Text = "Add Row";
+            add.Location = new Point(100, 20);
+            remove.Location = new Point(300, 20);
+            updateList.Location = new Point(200, 20);
+            getList.Location = new Point(10, 20);
+            add.Click += new EventHandler(add_Click);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             database = source.GetData();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            //dataGridView1.Size = new Size(600, 500);
+            
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-           dataGridView1.Size = new Size(500, 250);
+           
             var input = dataGridView1.CurrentCell.Value;
             Console.WriteLine(input);
 
+            
         }
 
         private void updateList_Click(object sender, EventArgs e)
         {
+            
             
 
         }
 
         private void remove_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.IsCurrentCellDirty)
+            {
+                dataGridView1.CurrentCell.Value = dataGridView1.CurrentCell.Value;
+
+            }
 
         }
 
@@ -49,6 +67,8 @@ namespace GUI
 
         private void getList_Click(object sender, EventArgs e)
         {
+            stateEnabled();
+
             string[] rows = database;
             DataTable dt = new DataTable();
 
@@ -72,26 +92,8 @@ namespace GUI
 
             }
 
-
             dataGridView1.DataSource = dt;
 
-        }
-
-        private void prodID_Add_TextChanged(object sender, EventArgs e)
-        {
-          
-            TextBox t = (TextBox)sender;
-            if (!string.IsNullOrEmpty(t.Text))
-            {
-                stateEnabled();
-
-                string productID = t.Text.ToString();
-                Console.WriteLine(productID);
-            } else
-            {
-                stateDisabled();
-            }
-          
         }
 
         private void stateEnabled()
@@ -109,37 +111,6 @@ namespace GUI
             remove.Enabled = false;
         }
 
-        private void quantity_TextChanged(object sender, EventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            if (!string.IsNullOrEmpty(t.Text))
-            {
-                stateEnabled();
-
-                string quantity = t.Text.ToString();
-            }
-            else
-            {
-                stateDisabled();
-            }
-
-        }
-
-        private void location_TextChanged(object sender, EventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            if (!string.IsNullOrEmpty(t.Text))
-            {
-                stateEnabled();
-
-                string location = t.Text.ToString();
-            }
-            else
-            {
-                stateDisabled();
-            }
-        }
-
         private void prodID_Search_TextChanged(object sender, EventArgs e)
         {
             TextBox t = (TextBox)sender;
@@ -148,6 +119,7 @@ namespace GUI
                 stateEnabled();
 
                 string productID = t.Text.ToString();
+                Console.WriteLine(productID);
             }
             else
             {
@@ -164,6 +136,7 @@ namespace GUI
                 stateEnabled();
 
                 string location = t.Text.ToString();
+                Console.WriteLine(location);
             }
             else
             {
