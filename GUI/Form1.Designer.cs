@@ -32,7 +32,7 @@ namespace GUI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.remove = new System.Windows.Forms.Button();
             this.updateList = new System.Windows.Forms.Button();
-            this.add = new System.Windows.Forms.Button();
+            this.getList = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -40,7 +40,7 @@ namespace GUI
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.getList = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,7 +51,6 @@ namespace GUI
             // 
             this.groupBox1.Controls.Add(this.remove);
             this.groupBox1.Controls.Add(this.updateList);
-            this.groupBox1.Controls.Add(this.add);
             this.groupBox1.Controls.Add(this.getList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -62,11 +61,11 @@ namespace GUI
             // 
             // remove
             // 
-            this.remove.Location = new System.Drawing.Point(673, 21);
+            this.remove.Location = new System.Drawing.Point(506, 21);
             this.remove.Name = "remove";
-            this.remove.Size = new System.Drawing.Size(161, 50);
+            this.remove.Size = new System.Drawing.Size(223, 50);
             this.remove.TabIndex = 3;
-            this.remove.Text = "Remove";
+            this.remove.Text = "Remove Product";
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
@@ -80,15 +79,15 @@ namespace GUI
             this.updateList.UseVisualStyleBackColor = true;
             this.updateList.Click += new System.EventHandler(this.updateList_Click);
             // 
-            // add
+            // getList
             // 
-            this.add.Location = new System.Drawing.Point(506, 21);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(161, 50);
-            this.add.TabIndex = 1;
-            this.add.Text = "Add";
-            this.add.UseVisualStyleBackColor = true;
-            this.add.Click += new System.EventHandler(this.add_Click);
+            this.getList.Location = new System.Drawing.Point(181, 21);
+            this.getList.Name = "getList";
+            this.getList.Size = new System.Drawing.Size(139, 50);
+            this.getList.TabIndex = 0;
+            this.getList.Text = "Get List";
+            this.getList.UseVisualStyleBackColor = true;
+            this.getList.Click += new System.EventHandler(this.getList_Click);
             // 
             // groupBox2
             // 
@@ -113,6 +112,7 @@ namespace GUI
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.search);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.textBox1);
@@ -158,15 +158,15 @@ namespace GUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Product ID";
             // 
-            // getList
+            // search
             // 
-            this.getList.Location = new System.Drawing.Point(181, 21);
-            this.getList.Name = "getList";
-            this.getList.Size = new System.Drawing.Size(139, 50);
-            this.getList.TabIndex = 0;
-            this.getList.Text = "Get List";
-            this.getList.UseVisualStyleBackColor = true;
-            this.getList.Click += new System.EventHandler(this.getList_Click);
+            this.search.Location = new System.Drawing.Point(547, 117);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(286, 50);
+            this.search.TabIndex = 4;
+            this.search.Text = "Search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // Form1
             // 
@@ -191,7 +191,6 @@ namespace GUI
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button updateList;
-        private System.Windows.Forms.Button add;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
@@ -201,6 +200,7 @@ namespace GUI
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button remove;
         private System.Windows.Forms.Button getList;
+        private System.Windows.Forms.Button search;
     }
 }
 

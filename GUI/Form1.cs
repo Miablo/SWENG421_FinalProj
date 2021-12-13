@@ -17,12 +17,11 @@ namespace GUI
 
             this.Size = new Size(600, 600);
 
-            add.Text = "Add Row";
-            add.Location = new Point(100, 20);
-            remove.Location = new Point(300, 20);
-            updateList.Location = new Point(200, 20);
+         
+            remove.Location = new Point(200, 20);
+            updateList.Location = new Point(100, 20);
             getList.Location = new Point(10, 20);
-            add.Click += new EventHandler(add_Click);
+        
 
         }
 
@@ -98,7 +97,7 @@ namespace GUI
 
         private void stateEnabled()
         {
-            add.Enabled = true;
+        
             updateList.Enabled = true;
             remove.Enabled = true;
 
@@ -106,7 +105,7 @@ namespace GUI
         
         private void stateDisabled()
         {
-            add.Enabled = false;
+            
             updateList.Enabled = false;
             remove.Enabled = false;
         }
@@ -142,6 +141,11 @@ namespace GUI
             {
                 stateDisabled();
             }
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
 
         }
     }
