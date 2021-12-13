@@ -30,30 +30,30 @@ namespace GUI
                 {
                     string[] values = r.Split(',');
  
-                        if(values[0] == "Product1")
-                        {
-
-                        }
-                        else if (values[0] == "Product2")
-                        {
-
-                        }
-                        else if (values[0] == "Product3")
-                        {
-
-                        }
-                        else if (values[0] == "VanProduct1")
-                        {
-                            vp1.SetCount(int.Parse(values[1]));
-                        }
-                        else if (values[0] == "VanProduct2")
-                        {
-                            vp2.SetCount(int.Parse(values[1]));
-                        }
-                        else if (values[0] == "VanProduct3")
-                        {
-                            vp3.SetCount(int.Parse(values[1]));
-                        }
+                    if(values[0] == "Product1")
+                    {
+                        p1.SetCount(int.Parse(values[1]));
+                    }
+                    else if (values[0] == "Product2")
+                    {
+                        p2.SetCount(int.Parse(values[1]));
+                    }
+                    else if (values[0] == "Product3")
+                    {
+                        p3.SetCount(int.Parse(values[1]));
+                    }
+                    else if (values[0] == "VanProduct1")
+                    {
+                        vp1.SetCount(int.Parse(values[1]));
+                    }
+                    else if (values[0] == "VanProduct2")
+                    {
+                        vp2.SetCount(int.Parse(values[1]));
+                    }
+                    else if (values[0] == "VanProduct3")
+                    {
+                        vp3.SetCount(int.Parse(values[1]));
+                    }
                 }
 
             }
