@@ -1,6 +1,7 @@
 ﻿using GUI;
 using System;
-
+using System.Collections;
+using System.Threading;
 
 public class Source: SourceIF
 {
@@ -60,7 +61,7 @@ public class Source: SourceIF
         if  (writeLockedThread != null) {
             waitingForReadLock++;
             while (writeLockedThread != null) {
-                wait();
+                Monitor.Wait(this);
             }
             waitingForReadLock--;
         }
@@ -72,19 +73,19 @@ public class Source: SourceIF
         Thread thisThread;
         synchronized (this) {
             if (writeLockedThread==null && outstandingReadLocks==0) {
-                writeLockedThread = Thread.currentThread();
+                writeLockedThread = Thread.CurrentThread;
                 return;
             }
-            thisThread = Thread.currentThread();
-            waitingForWriteLock.add(thisThread);
+            thisThread = Thread.CurrentThread;
+            waitingForWriteLock.Add(thisThread);
         }
         synchronized (thisThread) {
             while (thisThread != writeLockedThread) {
-                thisThread.wait();
+                Monitor.Wait(thisThread);
             }
         }
         synchronized (this) {
-            waitingForWriteLock.remove(thisThread);
+            waitingForWriteLock.Remove(thisThread);
         }
     }
 
@@ -93,25 +94,25 @@ public class Source: SourceIF
         //throw new NotImplementedException();
         if (outstandingReadLocks > 0) {
             outstandingReadLocks--;
-            if ( outstandingReadLocks==0 && waitingForWriteLock.size()>0) {
-                writeLockedThread = (Thread)waitingForWriteLock.get(0);
+            if ( outstandingReadLocks==0 && waitingForWriteLock.Capacity>0) {
+                writeLockedThread = (Thread)waitingForWriteLock[0];
                 synchronized (writeLockedThread) {
-                    writeLockedThread.notifyAll();
+                    Monitor.PulseAll(writeLockedThread);
                 }
             }
-        } else if (Thread.currentThread() == writeLockedThread) {
-            if ( outstandingReadLocks==0 && waitingForWriteLock.size()>0) {
-                writeLockedThread = (Thread)waitingForWriteLock.get(0);
+        } else if (Thread.CurrentThread == writeLockedThread) {
+            if ( outstandingReadLocks==0 && waitingForWriteLock.Capacity>0) {
+                writeLockedThread = (Thread)waitingForWriteLock[0];
                 synchronized (writeLockedThread) {
-                    writeLockedThread.notifyAll();
+                    Monitor.PulseAll(writeLockedThread);
                 }
             } else {
                 writeLockedThread = null;
                 if (waitingForReadLock > 0)
-                    notifyAll();
+                    Monitor.PulseAll(this);
             }
         } else {
-            throw new IllegalStateException("Thread does not have lock");
+            throw new Exception("Thread does not have lock");
         }
     }
 }
