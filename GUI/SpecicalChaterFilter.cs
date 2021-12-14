@@ -12,5 +12,9 @@ namespace GUI
         {
             
         }
+
+        /* public String[] GetData(){
+
+        } */
     }
 }
