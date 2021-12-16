@@ -8,6 +8,7 @@ namespace GUI
     public partial class Form1 : Form
     {
         Source source = new Source();
+        List list = new List();
         string[] database;
         
         public Form1()
@@ -19,7 +20,7 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            database = source.GetData();
+            database = source.readLock();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
         }
 
@@ -33,18 +34,46 @@ namespace GUI
 
         private void updateList_Click(object sender, EventArgs e)
         {
-            
+            string[] rows = list.GetInventory();
+            DataTable dt = new DataTable();
 
-        }
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Warehouse");
+            dt.Columns.Add("Quantity");
+            dt.Columns.Add("Van");
+            dt.Columns.Add("Total Amount");
+
+            foreach (string r in rows)
+            {
+                DataRow dr = dt.NewRow();
+                if (r != null)
+                {
+                    string[] values = r.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        dr[i] = values[i];
+                    }
+                    dt.Rows.Add(dr);
+                }
+
+            }
+            source.saveLock(rows);
+            dataGridView1.DataSource = dt;
+
+    }
+
+    
 
         private void remove_Click(object sender, EventArgs e)
         {
-
+            list.ChangeCount(textBox4.Text, textBox6.Text, -1);
+            updateList_Click(sender, e);
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-
+            list.ChangeCount(textBox4.Text, textBox6.Text, 1);
+            updateList_Click(sender, e);
         }
 
         private void getList_Click(object sender, EventArgs e)
@@ -53,8 +82,9 @@ namespace GUI
             DataTable dt = new DataTable();
 
             dt.Columns.Add("Name");
+            dt.Columns.Add("Warehouse");
             dt.Columns.Add("Quantity");
-            dt.Columns.Add("Location");
+            dt.Columns.Add("Van");
             dt.Columns.Add("Total Amount");
 
             foreach (string r in rows)
@@ -72,8 +102,11 @@ namespace GUI
 
             }
 
+            list.SetCount(rows);
 
             dataGridView1.DataSource = dt;
+
+            button1.Enabled = false;
 
         }
 
@@ -86,7 +119,7 @@ namespace GUI
                 stateEnabled();
 
                 string productID = t.Text.ToString();
-                Console.WriteLine(productID);
+                //Console.WriteLine(productID);
             } else
             {
                 stateDisabled();

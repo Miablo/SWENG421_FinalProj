@@ -8,14 +8,21 @@ namespace GUI
 {
     class Product1 : InventoryIF
     {
+        public int count;
+
+        public void SetCount(int c)
+        {
+            count = c;
+        }
         public void Add()
         {
-            throw new NotImplementedException();
+            count++;
         }
 
         public void Use()
         {
-            throw new NotImplementedException();
+            if(count != 0)
+            count--;
         }
     }
 }

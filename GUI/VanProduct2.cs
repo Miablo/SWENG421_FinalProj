@@ -24,14 +24,16 @@ namespace GUI
             }
             else
             {
-                vp2.Add();
+                count--;
+                //vp2.Add();
             }
 
         }
 
         public void take()
         {
-            vp2.Use();
+            count++;
+            //vp2.Use();
         }
     }
 }

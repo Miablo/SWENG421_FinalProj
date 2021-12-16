@@ -8,6 +8,7 @@ namespace GUI
 {
     interface InventoryIF
     {
+        void SetCount(int c);
         void Use();
         void Add();
 

@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseFile.txt" />
+    <Content Include="Properties\SaveDataBase.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

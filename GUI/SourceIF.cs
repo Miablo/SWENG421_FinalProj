@@ -9,5 +9,7 @@ namespace GUI
     public interface SourceIF
     {
         string[] GetData();
+        string[] readLock();
+        void saveLock(string[] str);
     }
 }

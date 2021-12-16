@@ -24,14 +24,16 @@ namespace GUI
             }
             else
             {
-                vp1.Add();
+                count--;
+                //vp1.Add();
             }
 
         }
 
         public void take()
         {
-            vp1.Use();
+            count++;
+           // vp1.Use();
         }
     }
 }
